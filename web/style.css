@@ -1,0 +1,56 @@
+.keyboard {
+    border: 1px solid slategrey;
+    padding: 5px;
+    border-radius: 4px;
+    position: relative;
+}
+
+.line::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.key{
+    float: left;
+    height: 40px;
+    width: 40px;
+    border: 1px solid slategrey;
+    border-radius: 4px;
+    margin: 3px;
+    padding: 4px;
+    text-align: center;
+    line-height: 32px;
+    text-transform: uppercase;
+}
+
+.fl_invisible{
+    width: 40px;
+}
+
+.fr_invisible{
+    width: 4px;
+}
+
+.s_invisible{
+    width: 50px;
+}
+
+
+.t_invisible{
+    width: 78px;
+}
+
+
+.l_invisible{
+    width: 200px;
+}
+
+
+.space{
+    width: 300px;
+}
+
+.invisible{
+    border: 1px solid black;
+}
