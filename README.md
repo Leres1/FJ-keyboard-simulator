@@ -1,5 +1,5 @@
 # FJ Keyboard simulator
+---
+## 2/6
 
-# process - 2/6
-
-| program for learning fast typing |
+#### Program for learning to type quickly
