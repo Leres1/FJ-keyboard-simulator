@@ -4,58 +4,64 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FJ Keyboard simulator</title>
+    <title class="lng-unit">FJ Keyboard simulator</title>
     <script src='eel.js'></script>
     <link rel='icon' type='image/png' href="/favicon.png">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
    <div class="container">
+       <div class="container_top">
+           <select class="change-lang">
+               <option value="en" selected>EN</option>
+               <option value="ua">UA</option>
+           </select>
+       </div>
        <div class="keyboard">
            <div class="keys">
                 <div class="line">
                     <div class="key tab invisible fl_invisible"></div>
-                    <div class="key">й</div>
-                    <div class="key">ц</div>
-                    <div class="key">у</div>
-                    <div class="key">к</div>
-                    <div class="key">е</div>
-                    <div class="key">н</div>
-                    <div class="key">г</div>
-                    <div class="key">ш</div>
-                    <div class="key">щ</div>
-                    <div class="key">з</div>
-                    <div class="key">х</div>
-                    <div class="key">ї</div>
+                    <div class="key lng-q">й</div>
+                    <div class="key lng-w">ц</div>
+                    <div class="key lng-e">у</div>
+                    <div class="key lng-r">к</div>
+                    <div class="key lng-t">е</div>
+                    <div class="key lng-y">н</div>
+                    <div class="key lng-u">г</div>
+                    <div class="key lng-i">ш</div>
+                    <div class="key lng-o">щ</div>
+                    <div class="key lng-p">з</div>
+                    <div class="key lng-code_1">х</div>
+                    <div class="key lng-code_2">ї</div>
                     <div class="key invisible fr_invisible"></div>
                 </div>
                 <div class="line">
                     <div class="key invisible s_invisible"></div>
-                    <div class="key">ф</div>
-                    <div class="key">і</div>
-                    <div class="key">в</div>
-                    <div class="key">а</div>
-                    <div class="key">п</div>
-                    <div class="key">р</div>
-                    <div class="key">о</div>
-                    <div class="key">л</div>
-                    <div class="key">д</div>
-                    <div class="key">ж</div>
-                    <div class="key">є</div>
+                    <div class="key lng-a">ф</div>
+                    <div class="key lng-s">і</div>
+                    <div class="key lng-d">в</div>
+                    <div class="key lng-f">а</div>
+                    <div class="key lng-g">п</div>
+                    <div class="key lng-h">р</div>
+                    <div class="key lng-j">о</div>
+                    <div class="key lng-k">л</div>
+                    <div class="key lng-l">д</div>
+                    <div class="key lng-code_3">ж</div>
+                    <div class="key lng-code_4">є</div>
                     <div class="key invisible s_invisible"></div>
                 </div>
                 <div class="line">
                     <div class="key invisible t_invisible"></div>
-                    <div class="key">я</div>
-                    <div class="key">ч</div>
-                    <div class="key">с</div>
-                    <div class="key">м</div>
-                    <div class="key">и</div>
-                    <div class="key">т</div>
-                    <div class="key">ь</div>
-                    <div class="key">б</div>
-                    <div class="key">ю</div>
-                    <div class="key">.</div>
+                    <div class="key lng-z">я</div>
+                    <div class="key lng-x">ч</div>
+                    <div class="key lng-c">с</div>
+                    <div class="key lng-v">м</div>
+                    <div class="key lng-b">и</div>
+                    <div class="key lng-n">т</div>
+                    <div class="key lng-m">ь</div>
+                    <div class="key lng-code_5">б</div>
+                    <div class="key lng-code_6">ю</div>
+                    <div class="key lng-code_7">.</div>
                     <div class="key invisible t_invisible"></div>
                 </div>
                 <div class="line">
@@ -67,5 +73,7 @@
            </div>
        </div>
    </div>
+   <script src="lang.js"></script>
+   <script src="app.js"></script>
 </body>
 </html>
