@@ -61,3 +61,32 @@
 .invisible{
     border: 1px;
 }
+
+.wrapper{
+    display: flex;
+    justify-content: center;
+    margin-top: 20%;
+    margin-bottom: 10%;
+}
+
+.textLine{
+    color: black;
+    font-family: monospace;
+    font-size: 40px;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 4px solid orange;
+    animation: flashing-border 0.75s step-end infinite;
+}
+
+@keyframes flashing-border{
+    0%{
+        border-color: orange;
+    }
+    50%{
+        border-color: transparent;
+    }
+    100%{
+        border-color: orange;
+    }
+}
