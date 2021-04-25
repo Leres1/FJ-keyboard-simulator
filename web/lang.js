@@ -38,4 +38,5 @@ const langArr = {
     "code_5":{"en": ",", "ua": "б",},
     "code_6":{"en": ".", "ua": "ю",},
     "code_7":{"en": "/", "ua": ".",},
+    "space":{"en": " ", "ua": " ",},
 }
