@@ -62,6 +62,14 @@
     border: 1px;
 }
 
+.word{
+    float: left;
+}
+
+letter{
+    float: left;
+}
+
 .wrapper{
     display: flex;
     justify-content: center;
@@ -75,6 +83,11 @@
     font-size: 40px;
     white-space: nowrap;
     overflow: hidden;
+    /* border-right: 4px solid orange;
+    animation: flashing-border 0.75s step-end infinite; */
+}
+
+.active{
     border-right: 4px solid orange;
     animation: flashing-border 0.75s step-end infinite;
 }
