@@ -62,12 +62,9 @@
     border: 1px;
 }
 
-.word{
-    float: left;
-}
-
 letter{
     float: left;
+    border-left: 4px solid white;
 }
 
 .wrapper{
@@ -83,12 +80,17 @@ letter{
     font-size: 40px;
     white-space: nowrap;
     overflow: hidden;
+    position: fixed;
+    box-sizing: content-box;
+    /* position: relative; */
+    /* text-overflow: ellipsis; */
+    /* position: absolute; */
     /* border-right: 4px solid orange;
     animation: flashing-border 0.75s step-end infinite; */
 }
 
 .active{
-    border-right: 4px solid orange;
+    border-left: 4px solid orange;
     animation: flashing-border 0.75s step-end infinite;
 }
 
@@ -102,4 +104,16 @@ letter{
     100%{
         border-color: orange;
     }
+}
+
+.correct{
+    color:blue;
+}
+
+.incorrect{
+    color:red;
+}
+
+.invisibleSpace{
+    color:white;
 }
