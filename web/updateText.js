@@ -1,18 +1,33 @@
-async function updateText(){
-    let res = await eel.getTextForLevel(1,window.location.hash.substr(1).toUpperCase())();
-    let txtLine = document.querySelector('.textLine');
-    let htmlCode = '';
-    for(let key in res){
-        if(res[key]==' '){htmlCode += '<letter class="invisibleSpace">_</letter>';continue;}
+var mas = new Map()
+let html_text_content = '';
+let index = 0;
+let text_content = '';
+let lengthTextLine = 30;
 
-        if(htmlCode == ''){
-            htmlCode += '<letter class="active">' + res[key] + '</letter>';
-            document.querySelector('.lng-' + getKey(res[key])).style.color = 'rgb(255, 128, 0)';
-            continue;
-        }
-        htmlCode += '<letter>' + res[key] + '</letter>';
-    }
-    txtLine.innerHTML = htmlCode;
+async function initializationText(){
+    text_content = await eel.getTextForLevel(1,window.location.hash.substr(1).toUpperCase())();
+    initializationMas();
+    initializationFirstText();
+    console.log(index);
 }
 
-updateText()
+function initializationMas(){
+    for(let key in text_content){
+        if(text_content[key]==' '){
+            mas.set(key,'<letter class="invisibleSpace">_</letter>');
+            continue;
+        }
+
+        mas.set(key,'<letter>' + text_content[key] + '</letter>')
+    }
+}
+
+function initializationFirstText(){
+    document.querySelector('.textLine').innerHTML += mas.get(String(0)).substr(0,7) + ' class="active"' + mas.get(String(0)).substr(7);
+    index++;
+    for(;index < lengthTextLine;){
+        plusLetter();
+    }
+}
+
+initializationText();

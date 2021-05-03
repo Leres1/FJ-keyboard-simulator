@@ -87,6 +87,7 @@ letter{
     overflow: hidden;
     position: fixed;
     box-sizing: content-box;
+    max-width: 20em;
     /* position: relative; */
     /* text-overflow: ellipsis; */
     /* position: absolute; */
