@@ -24,6 +24,7 @@ function initializationMas(){
 
 function initializationFirstText(){
     document.querySelector('.textLine').innerHTML += mas.get(String(0)).substr(0,7) + ' class="active"' + mas.get(String(0)).substr(7);
+    document.querySelector('.lng-' + getKey(mas.get(String(0)).substr(8,1))).style.color = 'rgb(255, 128, 0)';
     index++;
     for(;index < lengthTextLine;){
         plusLetter();

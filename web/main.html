@@ -10,16 +10,28 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div id="menu">
+        <button class="c-hamburger c-hamburger-line">
+            <span>Menu</span>
+        </button>
+
+        <nav class='burger-menu__nav'>
+            <select class="change-lang">
+                <option value="en" selected>EN</option>
+                <option value="ua">UA</option>
+            </select>
+            <div>someOptions</div>
+            <div>someOptions</div>
+            <div>someOptions</div>
+            <div>someOptions</div>
+            <div>someOptions</div>
+            <div>someOptions</div>
+        </nav>
+    </div>
     <div class="wrapper">
         <div class="textLine"></div>
     </div>
    <div class="container">
-       <div class="container_top">
-           <select class="change-lang">
-               <option value="en" selected>EN</option>
-               <option value="ua">UA</option>
-           </select>
-       </div>
        <div class="keyboard">
            <div class="keys">
                 <div class="line">
@@ -79,5 +91,6 @@
    <script src="lang.js"></script>
    <script src="app.js"></script>
    <script src="keydown.js"></script>
+   <script src="menu.js"></script>
 </body>
 </html>
