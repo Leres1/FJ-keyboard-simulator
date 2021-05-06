@@ -20,12 +20,21 @@
                 <option value="en" selected>EN</option>
                 <option value="ua">UA</option>
             </select>
-            <div>someOptions</div>
-            <div>someOptions</div>
-            <div>someOptions</div>
-            <div>someOptions</div>
-            <div>someOptions</div>
-            <div>someOptions</div>
+
+            <div class="select unselectable">
+                <span class="select__current">EN</span>
+    
+                <div class="select__body">
+                    <div class="select__item">EN</div>
+                    <div class="select__item">UA</div>
+                </div>
+            </div>
+            
+            <div class='notSpecified'>someOptions</div>
+            <div class='notSpecified'>someOptions</div>
+            <div class='notSpecified'>someOptions</div>
+            <div class='notSpecified'>someOptions</div>
+            <div class='notSpecified'>someOptions</div>
         </nav>
     </div>
     <div class="wrapper">
@@ -92,5 +101,6 @@
    <script src="app.js"></script>
    <script src="keydown.js"></script>
    <script src="menu.js"></script>
+   <script src="select.js"></script>
 </body>
 </html>

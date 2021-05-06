@@ -6,7 +6,7 @@ const allLang = ['en', 'ua'];
 function changeURLLanguage(){
     let lang = select.value;
     location.href = window.location.pathname + '#' + lang;
-    location.reload()
+    location.reload();
 }
 
 function changeLanguage(){
