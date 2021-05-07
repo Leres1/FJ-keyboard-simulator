@@ -1,3 +1,5 @@
+var allLang = ['en', 'ua'];
+
 const langArr = {
     "unit":{
         "en": "FJ Keyboard simulator",

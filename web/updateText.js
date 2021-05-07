@@ -1,5 +1,4 @@
 var mas = new Map()
-let html_text_content = '';
 let index = 0;
 let text_content = '';
 let lengthTextLine = 30;
@@ -29,6 +28,13 @@ function initializationFirstText(){
     for(;index < lengthTextLine;){
         plusLetter();
     }
+}
+
+function updateDataText(){
+    index = 0;
+    mas.clear();
+    document.querySelector('.textLine').innerHTML = '';
+    initializationText();
 }
 
 initializationText();

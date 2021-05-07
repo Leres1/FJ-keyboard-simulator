@@ -57,3 +57,10 @@ function getKey(lang_key){
         }
     }
 }
+
+function updateKeyboard(){
+    for(let key in langArr){
+        document.querySelector('.lng-' + key).style.color = 'rgb(101,101,101)';
+    }
+    document.querySelector('.lng-space').style.backgroundColor = 'rgb(51, 51, 51)';
+}

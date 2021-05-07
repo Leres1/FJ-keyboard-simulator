@@ -20,8 +20,17 @@ let select2 = function () {
             currentText = select.querySelector('.select__current');
         currentText.innerText = text;
         select.classList.remove('is-active');
+        checkLang(text);
     }
 };
 
+function checkLang(text){
+    if(String(text).toLowerCase() == 'ua' || String(text).toLowerCase() == 'en'){
+        changeURLLanguage(String(text).toLowerCase());
+        changeLanguage();
+        updateDataText();
+        updateKeyboard();
+    }
+}
 
 select2();
