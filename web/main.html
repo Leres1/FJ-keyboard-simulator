@@ -16,31 +16,41 @@
         </button>
 
         <nav class='burger-menu__nav'>
-            <!-- <select class="change-lang">
-                <option value="en" selected>EN</option>
-                <option value="ua">UA</option>
-            </select> -->
-
-            <div class="select change-lang unselectable">
-                <span class="select__current">EN</span>
-    
-                <div class="select__body">
-                    <div class="select__item">EN</div>
-                    <div class="select__item">UA</div>
+            <div class='menuOptions'>
+                <div class="select change-lang unselectable">
+                    <span class="select__current">EN</span>
+        
+                    <div class="select__body">
+                        <div class="select__item">EN</div>
+                        <div class="select__item">UA</div>
+                    </div>
+                </div>
+            </div>
+            <div class='menuOptions'>
+                <div class="select change-scale unselectable">
+                    <span class="select__current">1.00</span>
+        
+                    <div class="select__body">
+                        <div class="select__item">0.50</div>
+                        <div class="select__item">0.75</div>
+                        <div class="select__item">1.00</div>
+                        <div class="select__item">1.25</div>
+                        <div class="select__item">1.50</div>
+                    </div>
                 </div>
             </div>
             
-            <div class='notSpecified'>someOptions</div>
-            <div class='notSpecified'>someOptions</div>
-            <div class='notSpecified'>someOptions</div>
-            <div class='notSpecified'>someOptions</div>
-            <div class='notSpecified'>someOptions</div>
+            <div class='menuOptions'>someOptions</div>
+            <div class='menuOptions'>someOptions</div>
+            <div class='menuOptions'>someOptions</div>
+            <div class='menuOptions'>someOptions</div>
+            <div class='menuOptions'>someOptions</div>
         </nav>
     </div>
-    <div class="wrapper">
+    <div class="wrapper unselectable">
         <div class="textLine"></div>
     </div>
-   <div class="container">
+   <div class="container unselectable">
        <div class="keyboard">
            <div class="keys">
                 <div class="line">
@@ -96,11 +106,11 @@
             </div>
        </div>
    </div>
-   <script src="updateText.js"></script>
    <script src="lang.js"></script>
    <script src="app.js"></script>
-   <script src="keydown.js"></script>
    <script src="menu.js"></script>
+   <script src="keydown.js"></script>
+   <script src="updateText.js"></script>
    <script src="select.js"></script>
 </body>
 </html>

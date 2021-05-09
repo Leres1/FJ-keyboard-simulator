@@ -21,15 +21,28 @@ let select2 = function () {
         currentText.innerText = text;
         select.classList.remove('is-active');
         checkLang(text);
+        changeScale(text);
     }
 };
 
 function checkLang(text){
-    if(String(text).toLowerCase() == 'ua' || String(text).toLowerCase() == 'en'){
+    if(allLang.includes(String(text).toLowerCase())){
         changeURLLanguage(String(text).toLowerCase());
         changeLanguage();
         updateDataText();
         updateKeyboard();
+    }
+}
+
+function changeScale(text){
+    if([0.50, 0.75, 1.00, 1.25, 1.50].includes(Number(text))){
+        let object =  document.querySelector('.keys');
+        object.classList.remove('scaled_050');
+        object.classList.remove('scaled_075');
+        object.classList.remove('scaled_100');
+        object.classList.remove('scaled_125');
+        object.classList.remove('scaled_150');
+        object.classList.add('scaled_'+text.substr(0,1)+text.substr(2));
     }
 }
 

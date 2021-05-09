@@ -23,6 +23,10 @@ body{
     width: 750px;
 }
 
+.line{
+    height: 56px;
+}
+
 .line::after{
     content: "";
     display: block;
@@ -39,6 +43,10 @@ body{
     padding: 4px;
     text-transform: uppercase;
     color: rgb(101,101,101);
+}
+
+.keyboard_active_letter{
+    color: rgb(255, 128, 0);
 }
 
 .fl_invisible{
@@ -256,7 +264,7 @@ letter{
     overflow-y: auto;
 }
 
-.notSpecified{
+.menuOptions{
     border: 1px solid rgb(101,101,101);
     width: 204px;
     text-align: center;
@@ -318,4 +326,24 @@ letter{
 
 .select__item:hover {
     color: orange;
+}
+
+.scaled_050 {
+    transform: scale(0.5);
+}
+
+.scaled_075 {
+    transform: scale(0.75);
+}
+
+.scaled_100 {
+    transform: scale(1);
+}
+
+.scaled_125 {
+    transform: scale(1.25);
+}
+
+.scaled_150 {
+    transform: scale(1.5);
 }

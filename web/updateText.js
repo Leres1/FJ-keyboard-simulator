@@ -7,7 +7,6 @@ async function initializationText(){
     text_content = await eel.getTextForLevel(1,window.location.hash.substr(1).toUpperCase())();
     initializationMas();
     initializationFirstText();
-    console.log(index);
 }
 
 function initializationMas(){
@@ -23,7 +22,7 @@ function initializationMas(){
 
 function initializationFirstText(){
     document.querySelector('.textLine').innerHTML += mas.get(String(0)).substr(0,7) + ' class="active"' + mas.get(String(0)).substr(7);
-    document.querySelector('.lng-' + getKey(mas.get(String(0)).substr(8,1))).style.color = 'rgb(255, 128, 0)';
+    document.querySelector('.lng-' + getKey(mas.get(String(0)).substr(8,1))).classList.add('keyboard_active_letter');
     index++;
     for(;index < lengthTextLine;){
         plusLetter();

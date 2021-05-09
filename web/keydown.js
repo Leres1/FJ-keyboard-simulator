@@ -14,7 +14,7 @@ function checkKey(key){
 
         activeLetter = document.querySelector('letter:not(.correct)');
 
-        if(key != ' '){document.querySelector('.lng-' + getKey(key)).style.color = 'rgb(101,101,101)';
+        if(key != ' '){document.querySelector('.lng-' + getKey(key)).classList.remove('keyboard_active_letter');
         }else{document.querySelector('.lng-space').style.backgroundColor = 'rgb(51, 51, 51)';}
 
     }else{activeLetter.classList = 'incorrect';}
@@ -22,7 +22,7 @@ function checkKey(key){
     activeLetter.classList.add('active');
 
     if(activeLetter.textContent != '_'){
-        document.querySelector('.lng-' + getKey(activeLetter.textContent)).style.color = 'rgb(255, 128, 0)';;
+        document.querySelector('.lng-' + getKey(activeLetter.textContent)).classList.add('keyboard_active_letter');
     }else{
         document.querySelector('.lng-space').style.backgroundColor = 'rgb(255, 128, 0)';
     }
@@ -60,7 +60,7 @@ function getKey(lang_key){
 
 function updateKeyboard(){
     for(let key in langArr){
-        document.querySelector('.lng-' + key).style.color = 'rgb(101,101,101)';
+        document.querySelector('.lng-' + key).classList.remove('keyboard_active_letter');
     }
     document.querySelector('.lng-space').style.backgroundColor = 'rgb(51, 51, 51)';
 }
