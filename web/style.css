@@ -295,6 +295,7 @@ letter{
 
 .select.is-active .select__body {
 	display: block;
+    z-index: 1;
 }
 
 .select__current {

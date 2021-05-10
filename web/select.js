@@ -11,7 +11,13 @@ let select2 = function () {
     });
 
     function selectToggle() {
-        this.parentElement.classList.toggle('is-active');
+        if(this.parentElement.classList.contains('is-active')){
+            this.parentElement.classList.remove('is-active');
+        }else{
+            closeAllSelectors();
+            this.parentElement.classList.add('is-active');
+        }
+        // this.parentElement.classList.toggle('is-active');
     }
 
     function selectChoose() {
@@ -20,10 +26,20 @@ let select2 = function () {
             currentText = select.querySelector('.select__current');
         currentText.innerText = text;
         select.classList.remove('is-active');
-        checkLang(text);
-        changeScale(text);
+        Menufunctions();
     }
 };
+
+function closeAllSelectors(){
+    document.querySelector('.change-lang').classList.remove('is-active');
+    document.querySelector('.change-scale').classList.remove('is-active');
+    document.querySelector('.change-level').classList.remove('is-active');
+}
+
+function Menufunctions(){
+    checkLang(document.querySelector('.select.change-lang').querySelector('span').textContent);
+    changeScale(document.querySelector('.select.change-scale').querySelector('span').textContent);
+}
 
 function checkLang(text){
     if(allLang.includes(String(text).toLowerCase())){
