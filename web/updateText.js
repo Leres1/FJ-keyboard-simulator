@@ -4,7 +4,7 @@ let text_content = '';
 let lengthTextLine = 30;
 
 async function initializationText(){
-    text_content = await eel.getTextForLevel(Number(document.querySelector('.change-level').querySelector('.select__current').textContent),window.location.hash.substr(1).toUpperCase())();
+    text_content = await eel.getTextForLevel(Number(document.querySelector('.change-level').querySelector('.current_arrow-selector').textContent),window.location.hash.substr(1).toUpperCase())();
     initializationMas();
     initializationFirstText();
 }

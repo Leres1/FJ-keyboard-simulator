@@ -14,44 +14,38 @@
         <button class="c-hamburger c-hamburger-line">
             <span>Menu</span>
         </button>
-
         <nav class='burger-menu__nav'>
             <div class='menuOptions'>
-                <div class="select change-lang unselectable">
-                    <span class="select__current">EN</span>
-        
-                    <div class="select__body">
-                        <div class="select__item">EN</div>
-                        <div class="select__item">UA</div>
-                    </div>
+                <div class='arrow-selector change-lang unselectable'>
+                    <i class="arrow-left"></i>
+                    <div class="current_arrow-selector">EN</div>
+                    <div class="arrow__select__item">EN</div>
+                    <div class="arrow__select__item">UA</div>
+                    <i class="arrow-right"></i>
+                </div>
+            </div>
+            <div class='menuOptions'>
+                <div class='arrow-selector change-scale unselectable'>
+                    <i class="arrow-left"></i>
+                    <div class="current_arrow-selector">1.00</div>
+                    <div class="arrow__select__item">0.50</div>
+                    <div class="arrow__select__item">0.75</div>
+                    <div class="arrow__select__item">1.00</div>
+                    <div class="arrow__select__item">1.25</div>
+                    <div class="arrow__select__item">1.50</div>
+                    <i class="arrow-right"></i>
+                </div>
+            </div>
+            <div class='menuOptions'>
+                <div class='arrow-selector change-level unselectable'>
+                    <i class="arrow-left"></i>
+                    <div class="current_arrow-selector">1</div>
+                    <div class="arrow__select__item">1</div>
+                    <div class="arrow__select__item">2</div>
+                    <i class="arrow-right"></i>
                 </div>
             </div>
             
-            <div class='menuOptions'>
-                <div class="select change-scale unselectable">
-                    <span class="select__current">1.00</span>
-        
-                    <div class="select__body">
-                        <div class="select__item">0.50</div>
-                        <div class="select__item">0.75</div>
-                        <div class="select__item">1.00</div>
-                        <div class="select__item">1.25</div>
-                        <div class="select__item">1.50</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class='menuOptions'>
-                <div class="select change-level unselectable">
-                    <span class="select__current">1</span>
-        
-                    <div class="select__body">
-                        <div class="select__item">1</div>
-                        <div class="select__item">2</div>
-                    </div>
-                </div>
-            </div>
-            <div class='menuOptions'>someOptions</div>
             <div class='menuOptions'>someOptions</div>
             <div class='menuOptions'>someOptions</div>
             <div class='menuOptions'>someOptions</div>
@@ -122,5 +116,6 @@
    <script src="keydown.js"></script>
    <script src="updateText.js"></script>
    <script src="select.js"></script>
+   <script src="arrowSelector.js"></script>
 </body>
 </html>
