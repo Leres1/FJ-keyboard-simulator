@@ -2,11 +2,13 @@ var mas = new Map()
 let index = 0;
 let text_content = '';
 let lengthTextLine = 30;
+let textLine = document.querySelector('.textLine');
 
 async function initializationText(){
-    text_content = await eel.getTextForLevel(Number(document.querySelector('.change-level').querySelector('.current_arrow-selector').textContent),window.location.hash.substr(1).toUpperCase())();
+    let num_lvl = Number(document.querySelector('.change-level').querySelector('.current_arrow-selector').textContent);
+    text_content = await eel.getTextForLevel(num_lvl,window.location.hash.substr(1).toUpperCase())();
     initializationMas();
-    initializationFirstText();
+    initializationTextLine();
 }
 
 function initializationMas(){
@@ -16,23 +18,27 @@ function initializationMas(){
             continue;
         }
 
-        mas.set(key,'<letter>' + text_content[key] + '</letter>')
+        mas.set(key, '<letter>' + text_content[key] + '</letter>');
     }
 }
 
-function initializationFirstText(){
-    document.querySelector('.textLine').innerHTML += mas.get(String(0)).substr(0,7) + ' class="active"' + mas.get(String(0)).substr(7);
-    document.querySelector('.lng-' + getKey(mas.get(String(0)).substr(8,1))).classList.add('keyboard_active_letter');
-    index++;
+function initializationTextLine(){
     for(;index < lengthTextLine;){
         plusLetter();
     }
+    initializationActive();
+}
+
+function initializationActive(){
+    let firstLetter = textLine.querySelector('letter');
+    firstLetter.classList.add('active');
+    document.querySelector('.lng-' + getKey(firstLetter.textContent)).classList.add('keyboard_active_letter');
 }
 
 function updateDataText(){
     index = 0;
     mas.clear();
-    document.querySelector('.textLine').innerHTML = '';
+    textLine.innerHTML = '';
     initializationText();
 }
 

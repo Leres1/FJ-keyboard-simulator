@@ -11,66 +11,62 @@ let select3 = function(){
     });
 
     function left_click(){
-        let res = 0,
-        select = this.closest('.arrow-selector'),
-        currentText = select.querySelector('.current_arrow-selector'),
-        selectItem = select.querySelectorAll('.arrow__select__item');
+        let select = this.closest('.arrow-selector'),
+            currentText = select.querySelector('.current_arrow-selector'),
+            selectItem = select.querySelectorAll('.arrow__select__item');
         for(let i = 0; i < selectItem.length; i++){
             if(selectItem[i].textContent == currentText.textContent){
-                if(i == 0){
-                    res = selectItem.length - 1;
+                if(i){
+                    currentText.innerText = selectItem[i - 1].textContent;
                 }else{
-                    res = i - 1;
+                    currentText.innerText = selectItem[selectItem.length - 1].textContent;
                 }
+                break;
             }
         }
-        currentText.innerText = selectItem[res].textContent;
-        Menufunctions();
+        Menufunctions(select);
     }
 
     function right_click(){
-        let res = 0,
-        select = this.closest('.arrow-selector'),
-        currentText = select.querySelector('.current_arrow-selector'),
-        selectItem = select.querySelectorAll('.arrow__select__item');
+        let select = this.closest('.arrow-selector'),
+            currentText = select.querySelector('.current_arrow-selector'),
+            selectItem = select.querySelectorAll('.arrow__select__item');
         for(let i = 0; i < selectItem.length; i++){
-            if(selectItem[i].textContent == currentText.textContent){
+            if(selectItem[i].textContent == currentText.innerText){
                 if(i == selectItem.length - 1){
-                    res = 0;
+                    currentText.innerText = selectItem[0].textContent;
                 }else{
-                    res = i + 1;
+                    currentText.innerText = selectItem[i + 1].textContent;
                 }
+                break;
             }
         }
-        currentText.innerText = selectItem[res].textContent;
-        Menufunctions();
+        Menufunctions(select);
     }
 }
 
-function Menufunctions(){
-    checkLang(document.querySelector('.arrow-selector.change-lang').querySelector('.current_arrow-selector').textContent);
-    changeScale(document.querySelector('.arrow-selector.change-scale').querySelector('.current_arrow-selector').textContent);
+function Menufunctions(selector){
+    let current_text = selector.querySelector('.current_arrow-selector').textContent;
+    if(selector.classList.contains('change-lang')){changeLang(current_text)}
+    if(selector.classList.contains('change-scale')){changeScale(current_text)}
+    if(selector.classList.contains('change-level')){updateDataText();updateKeyboard();}
 }
 
-function checkLang(text){
-    if(allLang.includes(String(text).toLowerCase())){
-        changeURLLanguage(String(text).toLowerCase());
-        changeLanguage();
-        updateDataText();
-        updateKeyboard();
-    }
+function changeLang(text){
+    changeURLLanguage(String(text).toLowerCase());
+    changeLanguage();
+    updateDataText();
+    updateKeyboard();
 }
 
 function changeScale(text){
-    if([0.50, 0.75, 1.00, 1.25, 1.50].includes(Number(text))){
-        let object =  document.querySelector('.keys');
-        object.classList.remove('scaled_050');
-        object.classList.remove('scaled_075');
-        object.classList.remove('scaled_100');
-        object.classList.remove('scaled_125');
-        object.classList.remove('scaled_150');
-        object.classList.add('scaled_'+text.substr(0,1)+text.substr(2));
-    }
+    let object =  document.querySelector('.keys');
+    object.classList.remove('scaled_050');
+    object.classList.remove('scaled_075');
+    object.classList.remove('scaled_100');
+    object.classList.remove('scaled_125');
+    object.classList.remove('scaled_150');
+    object.classList.add('scaled_'+text.substr(0,1)+text.substr(2));
 }
 
 select3();

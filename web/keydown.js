@@ -1,30 +1,34 @@
+let activeLetterOn = 6
+
 document.onkeydown = function(event){
-    checkKey(event.key);
-    if (checkActive(6)){
+    validation(event.key);
+    if (checkActive(activeLetterOn)){
         PM();
     }
 }
 
-function checkKey(key){
-    activeLetter = document.querySelector('letter:not(.correct)');
+function validation(key){
+    let activeLetter = document.querySelector('letter:not(.correct)');
     if(key == activeLetter.textContent || (key == ' ' && activeLetter.textContent == '_')){
-        activeLetter.classList = 'correct';
-
-        if(activeLetter.textContent == '_'){activeLetter.classList.add('invisibleSpace');}
+        
+        activeLetter.classList.remove('active');
+        activeLetter.classList.remove('incorrect');
+        activeLetter.classList.add('correct');
 
         activeLetter = document.querySelector('letter:not(.correct)');
+        activeLetter.classList.add('active');
 
-        if(key != ' '){document.querySelector('.lng-' + getKey(key)).classList.remove('keyboard_active_letter');
-        }else{document.querySelector('.lng-space').style.backgroundColor = 'rgb(51, 51, 51)';}
+        document.querySelector('.lng-' + getKey(key)).classList.remove('keyboard_active_letter');
+        setActiveLetter(activeLetter.textContent);
+        
+    }else{activeLetter.classList.add('incorrect');}
+}
 
-    }else{activeLetter.classList = 'incorrect';}
-
-    activeLetter.classList.add('active');
-
-    if(activeLetter.textContent != '_'){
-        document.querySelector('.lng-' + getKey(activeLetter.textContent)).classList.add('keyboard_active_letter');
+function setActiveLetter(letter){
+    if(letter != '_'){
+        document.querySelector('.lng-' + getKey(letter)).classList.add('keyboard_active_letter');
     }else{
-        document.querySelector('.lng-space').style.backgroundColor = 'rgb(255, 128, 0)';
+        document.querySelector('.lng-space').classList.add('keyboard_active_letter');
     }
 }
 
@@ -37,7 +41,14 @@ function checkActive(num){
 }
 
 function PM(){
-    plusLetter();
+    if(index + activeLetterOn == text_content.length - 1 + lengthTextLine){
+        console.log('finish');
+    }
+    if(index < text_content.length - 1){
+        plusLetter();
+    }else{
+        plusSpace();
+    }
     minusLetter();
 }
 
@@ -48,6 +59,11 @@ function plusLetter(){
 
 function minusLetter(){
     document.querySelector('letter.correct').remove();
+}
+
+function plusSpace(){
+    index++;
+    document.querySelector('.textLine').innerHTML += '<letter class="invisibleSpace">_</letter>';
 }
 
 function getKey(lang_key){
@@ -62,5 +78,4 @@ function updateKeyboard(){
     for(let key in langArr){
         document.querySelector('.lng-' + key).classList.remove('keyboard_active_letter');
     }
-    document.querySelector('.lng-space').style.backgroundColor = 'rgb(51, 51, 51)';
 }

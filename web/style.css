@@ -49,6 +49,10 @@ body{
     color: rgb(255, 128, 0);
 }
 
+.lng-space.keyboard_active_letter{
+    background:rgb(255, 128, 0);
+}
+
 .fl_invisible{
     width: 40px;
 }
