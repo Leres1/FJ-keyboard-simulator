@@ -1,12 +1,15 @@
 var mas = new Map()
 let index = 0;
 let text_content = '';
-let lengthTextLine = 30;
+let language = '';
+let lengthTextLine = 0;
 let textLine = document.querySelector('.textLine');
 
 async function initializationText(){
+    language = document.querySelector('.change-lang').querySelector('.current_arrow-selector').textContent;
+    lengthTextLine = document.querySelector('.change-length').querySelector('.current_arrow-selector').textContent;
     let num_lvl = Number(document.querySelector('.change-level').querySelector('.current_arrow-selector').textContent);
-    text_content = await eel.getTextForLevel(num_lvl,window.location.hash.substr(1).toUpperCase())();
+    text_content = await eel.getTextForLevel(num_lvl,language)();
     initializationMas();
     initializationTextLine();
 }
@@ -40,6 +43,11 @@ function updateDataText(){
     mas.clear();
     textLine.innerHTML = '';
     initializationText();
+}
+
+function setLengthTextLine(text){
+    lengthTextLine = text;
+    updateDataText();
 }
 
 initializationText();

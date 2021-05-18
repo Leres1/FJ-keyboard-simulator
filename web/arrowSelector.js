@@ -50,6 +50,7 @@ function Menufunctions(selector){
     if(selector.classList.contains('change-lang')){changeLang(current_text)}
     if(selector.classList.contains('change-scale')){changeScale(current_text)}
     if(selector.classList.contains('change-level')){updateDataText();updateKeyboard();}
+    if(selector.classList.contains('change-length')){setLengthTextLine(current_text),updateKeyboard();}
 }
 
 function changeLang(text){
@@ -61,8 +62,6 @@ function changeLang(text){
 
 function changeScale(text){
     let object =  document.querySelector('.keys');
-    object.classList.remove('scaled_050');
-    object.classList.remove('scaled_075');
     object.classList.remove('scaled_100');
     object.classList.remove('scaled_125');
     object.classList.remove('scaled_150');
