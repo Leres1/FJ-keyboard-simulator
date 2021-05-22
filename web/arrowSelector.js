@@ -51,6 +51,7 @@ function Menufunctions(selector){
     if(selector.classList.contains('change-scale')){changeScale(current_text)}
     if(selector.classList.contains('change-level')){updateDataText();updateKeyboard();}
     if(selector.classList.contains('change-length')){setLengthTextLine(current_text),updateKeyboard();}
+    if(selector.classList.contains('change-keyboard')){changeKeyboard(current_text);}
 }
 
 function changeLang(text){
@@ -66,6 +67,21 @@ function changeScale(text){
     object.classList.remove('scaled_125');
     object.classList.remove('scaled_150');
     object.classList.add('scaled_'+text.substr(0,1)+text.substr(2));
+}
+
+function changeKeyboard(text){
+    let keyboard = document.querySelectorAll('.key');
+    keyboard.forEach(item => {
+        console.log(item);
+        if(text == 'OFF'){
+            item.classList.add('invisible-keyboard');
+            keyboardActive = false;
+        }
+        if(text == 'ON'){
+            item.classList.remove('invisible-keyboard');
+            keyboardActive = true;
+        }
+    });
 }
 
 select3();

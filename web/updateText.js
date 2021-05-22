@@ -4,6 +4,7 @@ let text_content = '';
 let language = '';
 let lengthTextLine = 0;
 let textLine = document.querySelector('.textLine');
+let keyboardActive = true;
 
 async function initializationText(){
     language = document.querySelector('.change-lang').querySelector('.current_arrow-selector').textContent;

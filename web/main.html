@@ -37,6 +37,16 @@
                 </div>
             </div>
             <div class='menuOptions'>
+                <div class="name-option">Keyboard</div>
+                <div class='arrow-selector change-keyboard unselectable'>
+                    <i class="arrow-left"></i>
+                    <div class="current_arrow-selector">ON</div>
+                    <div class="arrow__select__item">ON</div>
+                    <div class="arrow__select__item">OFF</div>
+                    <i class="arrow-right"></i>
+                </div>
+            </div>
+            <div class='menuOptions'>
                 <div class="name-option">Keyboard Size</div>
                 <div class='arrow-selector change-scale unselectable'>
                     <i class="arrow-left"></i>
@@ -52,7 +62,7 @@
                 <div class="name-option">Line Length</div>
                 <div class='arrow-selector change-length unselectable'>
                     <i class="arrow-left"></i>
-                    <div class="current_arrow-selector">30</div>
+                    <div class="current_arrow-selector">25</div>
                     <div class="arrow__select__item">10</div>
                     <div class="arrow__select__item">11</div>
                     <div class="arrow__select__item">12</div>
@@ -85,6 +95,13 @@
                     <div class="arrow__select__item">39</div>
                     <div class="arrow__select__item">40</div>
                     <i class="arrow-right"></i>
+                </div>
+            </div>
+            <div class='menuOptions'>
+                <div class="name-option">Text Size</div>
+                <div class="slider">
+                    <!-- <div for="fader" class="volume textsize">50</div> -->
+                    <input type="range" class="fader" min="30" max="100" value="50" step="1" oninput="sliderFunctions(value, '.textsize')">
                 </div>
             </div>
             <!-- <div class='menuOptions'>someOptions</div>
@@ -157,5 +174,6 @@
    <script src="updateText.js"></script>
    <script src="select.js"></script>
    <script src="arrowSelector.js"></script>
+   <script src="slider.js"></script>
 </body>
 </html>

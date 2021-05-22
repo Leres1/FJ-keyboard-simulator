@@ -17,9 +17,10 @@ function validation(key){
 
         activeLetter = document.querySelector('letter:not(.correct)');
         activeLetter.classList.add('active');
-
-        document.querySelector('.lng-' + getKey(key)).classList.remove('keyboard_active_letter');
-        setActiveLetter(activeLetter.textContent);
+        if(keyboardActive){
+            document.querySelector('.lng-' + getKey(key)).classList.remove('keyboard_active_letter');
+            setActiveLetter(activeLetter.textContent);
+        }
         
     }else{activeLetter.classList.add('incorrect');}
 }
