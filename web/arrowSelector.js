@@ -1,4 +1,4 @@
-let select3 = function(){
+let select3 = function() {
     let left_arrow_selectors = document.querySelectorAll('.arrow-left');
     let right_arrow_selectors = document.querySelectorAll('.arrow-right');
 
@@ -10,15 +10,15 @@ let select3 = function(){
         item.addEventListener('click', left_click)
     });
 
-    function left_click(){
+    function left_click() {
         let select = this.closest('.arrow-selector'),
             currentText = select.querySelector('.current_arrow-selector'),
             selectItem = select.querySelectorAll('.arrow__select__item');
-        for(let i = 0; i < selectItem.length; i++){
-            if(selectItem[i].textContent == currentText.textContent){
-                if(i){
+        for (let i = 0; i < selectItem.length; i++) {
+            if (selectItem[i].textContent == currentText.textContent) {
+                if (i) {
                     currentText.innerText = selectItem[i - 1].textContent;
-                }else{
+                } else {
                     currentText.innerText = selectItem[selectItem.length - 1].textContent;
                 }
                 break;
@@ -27,15 +27,15 @@ let select3 = function(){
         Menufunctions(select);
     }
 
-    function right_click(){
+    function right_click() {
         let select = this.closest('.arrow-selector'),
             currentText = select.querySelector('.current_arrow-selector'),
             selectItem = select.querySelectorAll('.arrow__select__item');
-        for(let i = 0; i < selectItem.length; i++){
-            if(selectItem[i].textContent == currentText.innerText){
-                if(i == selectItem.length - 1){
+        for (let i = 0; i < selectItem.length; i++) {
+            if (selectItem[i].textContent == currentText.innerText) {
+                if (i == selectItem.length - 1) {
                     currentText.innerText = selectItem[0].textContent;
-                }else{
+                } else {
                     currentText.innerText = selectItem[i + 1].textContent;
                 }
                 break;
@@ -45,23 +45,23 @@ let select3 = function(){
     }
 }
 
-function Menufunctions(selector){
+function Menufunctions(selector) {
     let current_text = selector.querySelector('.current_arrow-selector').textContent;
-    if(selector.classList.contains('change-lang')){changeLang(current_text)}
-    if(selector.classList.contains('change-scale')){changeScale(current_text)}
-    if(selector.classList.contains('change-level')){updateDataText();updateKeyboard();}
-    if(selector.classList.contains('change-length')){setLengthTextLine(current_text),updateKeyboard();}
-    if(selector.classList.contains('change-keyboard')){changeKeyboard(current_text);}
+    if (selector.classList.contains('change-lang')) {changeLang(current_text)}
+    if (selector.classList.contains('change-scale')) {changeScale(current_text)}
+    if (selector.classList.contains('change-level')) {updateDataText();updateKeyboard();}
+    if (selector.classList.contains('change-length')) {setLengthTextLine(current_text),updateKeyboard();}
+    if (selector.classList.contains('change-keyboard')) {changeKeyboard(current_text);}
 }
 
-function changeLang(text){
+function changeLang(text) {
     changeURLLanguage(String(text).toLowerCase());
     changeLanguage();
     updateDataText();
     updateKeyboard();
 }
 
-function changeScale(text){
+function changeScale(text) {
     let object =  document.querySelector('.keys');
     object.classList.remove('scaled_100');
     object.classList.remove('scaled_125');
@@ -69,15 +69,13 @@ function changeScale(text){
     object.classList.add('scaled_'+text.substr(0,1)+text.substr(2));
 }
 
-function changeKeyboard(text){
+function changeKeyboard(text) {
     let keyboard = document.querySelectorAll('.key');
     keyboard.forEach(item => {
-        console.log(item);
-        if(text == 'OFF'){
+        if (text == 'OFF') {
             item.classList.add('invisible-keyboard');
             keyboardActive = false;
-        }
-        if(text == 'ON'){
+        } else if (text == 'ON') {
             item.classList.remove('invisible-keyboard');
             keyboardActive = true;
         }

@@ -1,10 +1,11 @@
-var allLang = ['en', 'ua'];
+// var allLang = ['en', 'ua'];
 
-const langArr = {
+let langArr = {
     "unit":{
         "en": "FJ Keyboard simulator",
         "ua": "FJ Клавіатурний тренажер",
     },
+    // занести все в бд
     "q":{"en": "q", "ua": "й",},
     "w":{"en": "w", "ua": "ц",},
     "e":{"en": "e", "ua": "у",},

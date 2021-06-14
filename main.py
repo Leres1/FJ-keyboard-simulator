@@ -7,7 +7,15 @@ eel.init('web')
 def getTextForLevel(lvl_id, lang):
     curcor = sqlite3.connect('lvl.bd').cursor()
     curcor.execute(f"SELECT {lang}_Level FROM level WHERE id={lvl_id}")
-    elem = curcor.fetchall().__str__()
-    return elem[3:len(elem) - 4]
+    return curcor.fetchall()[0][0]
 
-eel.start('main.html', size=(1920, 1080))
+@eel.expose
+def getLangs():
+    curcor = sqlite3.connect('keys.bd').cursor()
+    curcor.execute(f"PRAGMA table_info(keys);")
+    mas = []
+    for i in curcor.fetchall()[1:]:
+        mas += [i[1]];
+    return mas
+
+eel.start('main.html', cmdline_args=['--start-fullscreen'])
