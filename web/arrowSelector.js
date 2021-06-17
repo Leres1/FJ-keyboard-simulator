@@ -48,9 +48,9 @@ let select3 = function() {
 function Menufunctions(selector) {
     let current_text = selector.querySelector('.current_arrow-selector').textContent;
     if (selector.classList.contains('change-lang')) {changeLang(current_text)}
-    if (selector.classList.contains('change-scale')) {changeScale(current_text)}
+    if (selector.classList.contains('change-keyboard_size')) {changeKeyboard_size(current_text)}
     if (selector.classList.contains('change-level')) {updateDataText();updateKeyboard();}
-    if (selector.classList.contains('change-length')) {setLengthTextLine(current_text),updateKeyboard();}
+    if (selector.classList.contains('change-line_length')) {setLengthTextLine(current_text), updateKeyboard();}
     if (selector.classList.contains('change-keyboard')) {changeKeyboard(current_text);}
 }
 
@@ -61,12 +61,15 @@ function changeLang(text) {
     updateKeyboard();
 }
 
-function changeScale(text) {
+function changeKeyboard_size(text) {
     let object =  document.querySelector('.keys');
-    object.classList.remove('scaled_100');
-    object.classList.remove('scaled_125');
-    object.classList.remove('scaled_150');
-    object.classList.add('scaled_'+text.substr(0,1)+text.substr(2));
+    object.classList.remove('scaled_10');
+    object.classList.remove('scaled_11');
+    object.classList.remove('scaled_12');
+    object.classList.remove('scaled_13');
+    object.classList.remove('scaled_14');
+    object.classList.remove('scaled_15');
+    object.classList.add('scaled_' + text.substr(0,1) + text.substr(2));
 }
 
 function changeKeyboard(text) {

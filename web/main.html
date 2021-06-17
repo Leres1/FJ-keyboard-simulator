@@ -19,9 +19,6 @@
                 <div class="name-option">Language</div>
                 <div class='arrow-selector change-lang unselectable'>
                     <i class="arrow-left"></i>
-                    <div class="current_arrow-selector">EN</div>
-                    <div class="arrow__select__item">EN</div>
-                    <div class="arrow__select__item">UA</div>
                     <i class="arrow-right"></i>
                 </div>
             </div>
@@ -29,10 +26,6 @@
                 <div class="name-option">Level</div>
                 <div class='arrow-selector change-level unselectable'>
                     <i class="arrow-left"></i>
-                    <div class="current_arrow-selector">1</div>
-                    <div class="arrow__select__item">0</div>
-                    <div class="arrow__select__item">1</div>
-                    <div class="arrow__select__item">2</div>
                     <i class="arrow-right"></i>
                 </div>
             </div>
@@ -40,67 +33,27 @@
                 <div class="name-option">Keyboard</div>
                 <div class='arrow-selector change-keyboard unselectable'>
                     <i class="arrow-left"></i>
-                    <div class="current_arrow-selector">ON</div>
-                    <div class="arrow__select__item">ON</div>
-                    <div class="arrow__select__item">OFF</div>
                     <i class="arrow-right"></i>
                 </div>
             </div>
             <div class='menuOptions'>
                 <div class="name-option">Keyboard Size</div>
-                <div class='arrow-selector change-scale unselectable'>
+                <div class='arrow-selector change-keyboard_size unselectable'>
                     <i class="arrow-left"></i>
-                    <div class="current_arrow-selector">1.00</div>
-                    <div class="arrow__select__item">1.00</div>
-                    <div class="arrow__select__item">1.25</div>
-                    <div class="arrow__select__item">1.50</div>
                     <i class="arrow-right"></i>
                 </div>
             </div>
             
             <div class='menuOptions'>
                 <div class="name-option">Line Length</div>
-                <div class='arrow-selector change-length unselectable'>
+                <div class='arrow-selector change-line_length unselectable'>
                     <i class="arrow-left"></i>
-                    <div class="current_arrow-selector">25</div>
-                    <div class="arrow__select__item">10</div>
-                    <div class="arrow__select__item">11</div>
-                    <div class="arrow__select__item">12</div>
-                    <div class="arrow__select__item">13</div>
-                    <div class="arrow__select__item">14</div>
-                    <div class="arrow__select__item">15</div>
-                    <div class="arrow__select__item">16</div>
-                    <div class="arrow__select__item">17</div>
-                    <div class="arrow__select__item">18</div>
-                    <div class="arrow__select__item">19</div>
-                    <div class="arrow__select__item">20</div>
-                    <div class="arrow__select__item">21</div>
-                    <div class="arrow__select__item">22</div>
-                    <div class="arrow__select__item">23</div>
-                    <div class="arrow__select__item">24</div>
-                    <div class="arrow__select__item">25</div>
-                    <div class="arrow__select__item">26</div>
-                    <div class="arrow__select__item">27</div>
-                    <div class="arrow__select__item">28</div>
-                    <div class="arrow__select__item">29</div>
-                    <div class="arrow__select__item">30</div>
-                    <div class="arrow__select__item">31</div>
-                    <div class="arrow__select__item">32</div>
-                    <div class="arrow__select__item">33</div>
-                    <div class="arrow__select__item">34</div>
-                    <div class="arrow__select__item">35</div>
-                    <div class="arrow__select__item">36</div>
-                    <div class="arrow__select__item">37</div>
-                    <div class="arrow__select__item">38</div>
-                    <div class="arrow__select__item">39</div>
-                    <div class="arrow__select__item">40</div>
                     <i class="arrow-right"></i>
                 </div>
             </div>
             <div class='menuOptions'>
                 <div class="name-option">Text Size</div>
                 <div class="slider">
-                    <!-- <div for="fader" class="volume textsize">50</div> -->
                     <input type="range" class="fader" min="30" max="100" value="50" step="1" oninput="sliderFunctions(value, '.textsize')">
                 </div>
             </div>
@@ -126,8 +79,8 @@
                     <div class="key lng-i"></div>
                     <div class="key lng-o"></div>
                     <div class="key lng-p"></div>
-                    <div class="key lng-code_1"></div>
-                    <div class="key lng-code_2"></div>
+                    <div class="key lng-key_1"></div>
+                    <div class="key lng-key_2"></div>
                     <div class="key invisible fr_invisible"></div>
                 </div>
                 <div class="line">
@@ -141,8 +94,8 @@
                     <div class="key lng-j"></div>
                     <div class="key lng-k"></div>
                     <div class="key lng-l"></div>
-                    <div class="key lng-code_3"></div>
-                    <div class="key lng-code_4"></div>
+                    <div class="key lng-key_3"></div>
+                    <div class="key lng-key_4"></div>
                     <div class="key invisible s_invisible"></div>
                 </div>
                 <div class="line">
@@ -154,9 +107,9 @@
                     <div class="key lng-b"></div>
                     <div class="key lng-n"></div>
                     <div class="key lng-m"></div>
-                    <div class="key lng-code_5"></div>
-                    <div class="key lng-code_6"></div>
-                    <div class="key lng-code_7"></div>
+                    <div class="key lng-key_5"></div>
+                    <div class="key lng-key_6"></div>
+                    <div class="key lng-key_7"></div>
                     <div class="key invisible t_invisible"></div>
                 </div>
                 <div class="line">
@@ -167,7 +120,6 @@
             </div>
        </div>
    </div>
-   <script src="start.js"></script>
    <script src="lang.js"></script>
    <script src="app.js"></script>
    <script src="menu.js"></script>
@@ -176,5 +128,6 @@
    <script src="select.js"></script>
    <script src="arrowSelector.js"></script>
    <script src="slider.js"></script>
+   <script src="start.js"></script>
 </body>
 </html>

@@ -8,7 +8,7 @@ let keyboardActive = true;
 
 async function initializationText() {
     language = document.querySelector('.change-lang').querySelector('.current_arrow-selector').textContent;
-    lengthTextLine = document.querySelector('.change-length').querySelector('.current_arrow-selector').textContent;
+    lengthTextLine = document.querySelector('.change-line_length').querySelector('.current_arrow-selector').textContent;
     let num_lvl = Number(document.querySelector('.change-level').querySelector('.current_arrow-selector').textContent);
     text_content = await eel.getTextForLevel(num_lvl,language)();
     initializationMas();
