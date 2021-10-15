@@ -1,4 +1,4 @@
-let select3 = function() {
+let select = function() {
     let left_arrow_selectors = document.querySelectorAll('.arrow-left');
     let right_arrow_selectors = document.querySelectorAll('.arrow-right');
 
@@ -45,44 +45,85 @@ let select3 = function() {
     }
 }
 
-function Menufunctions(selector) {
-    let current_text = selector.querySelector('.current_arrow-selector').textContent;
-    if (selector.classList.contains('change-lang')) {changeLang(current_text)}
-    if (selector.classList.contains('change-keyboard_size')) {changeKeyboard_size(current_text)}
-    if (selector.classList.contains('change-level')) {updateDataText();updateKeyboard();}
-    if (selector.classList.contains('change-line_length')) {setLengthTextLine(current_text), updateKeyboard();}
-    if (selector.classList.contains('change-keyboard')) {changeKeyboard(current_text);}
+async function Menufunctions(selector) {
+    current_text = selector.querySelector('.current_arrow-selector').textContent;
+    settings_name = selector.classList[1].replace('change-', '');
+    await updateConfig(settings_name, current_text);
+
+    if (selector.classList.contains('change-language')) {updateLang()}
+    if (selector.classList.contains('change-keyboard_size')) {changeKeyboardSize()}
+    if (selector.classList.contains('change-level')) {updateDataText();clearActiveLettersOnKeyboard();}
+    if (selector.classList.contains('change-line_length')) {updateDataText(), clearActiveLettersOnKeyboard();}
+    if (selector.classList.contains('change-keyboard')) { clearActiveLettersOnKeyboard(); changeKeyboardStatus();}
+    if (selector.classList.contains('change-lines')) {await changeLines();}
+    if (selector.classList.contains('change-up_on')) {await checkUpOn();}
+    if (selector.classList.contains('change-without_space')) {updateDataText();clearActiveLettersOnKeyboard();}
+    if (selector.classList.contains('change-statistics')) {changeStatusMenuStatistics()}
 }
 
-function changeLang(text) {
-    changeURLLanguage(String(text).toLowerCase());
-    changeLanguage();
-    updateDataText();
-    updateKeyboard();
+function changeStatusMenuStatistics() {
+    menuStatistics = document.querySelector('#menu-statistics');
+    if (config['statistics'] == 'off') {
+        menuStatistics.classList.remove('is-active');
+    } else {
+        menuStatistics.classList.add('is-active');
+    }
 }
 
-function changeKeyboard_size(text) {
-    let object =  document.querySelector('.keys');
-    object.classList.remove('scaled_10');
-    object.classList.remove('scaled_11');
-    object.classList.remove('scaled_12');
-    object.classList.remove('scaled_13');
-    object.classList.remove('scaled_14');
-    object.classList.remove('scaled_15');
-    object.classList.add('scaled_' + text.substr(0,1) + text.substr(2));
+async function updateConfig(name, value) {
+    await eel.setConfig(name, value)();
+    await initialization_Config();
 }
 
-function changeKeyboard(text) {
-    let keyboard = document.querySelectorAll('.key');
-    keyboard.forEach(item => {
-        if (text == 'OFF') {
+async function checkUpOn() {
+    if(config['up_on'] > config['lines']) {
+        await changeUpOn(config['lines']);
+    }
+}
+
+async function changeUpOn(num) {
+    await eel.setConfig('up_on', config['lines'])();
+    document.querySelector('.change-up_on').querySelector('.current_arrow-selector').textContent = num;
+    await initialization_Config();
+}
+
+async function updateLang() {
+    updateLangForKeyboard();
+    await updateDataText();
+    clearActiveLettersOnKeyboard();
+    setActiveLetterForKeyboard(textLine.querySelector('letter:not(.corrrect)').textContent)
+}
+
+function updateLangForKeyboard(){
+    for(let key in langArr){
+        document.querySelector('.lng-' + key).innerHTML = langArr[key][config['language']];
+    }
+}
+
+function changeKeyboardSize() {
+    text = String(config['keyboard_size'].toFixed(1))
+    document.querySelector('.keys').classList = 'keys scaled_' + text.replace('.','');
+}
+
+function changeKeyboardStatus() {
+    text = config['keyboard']
+    // console.log(textLine.outerHTML)
+    document.querySelectorAll('.key').forEach(item => {
+        if (text == 'off') {
             item.classList.add('invisible-keyboard');
-            keyboardActive = false;
-        } else if (text == 'ON') {
+        } else if (text == 'on') {
             item.classList.remove('invisible-keyboard');
-            keyboardActive = true;
         }
     });
+    if(config['keyboard'] != 'off' && waitForSpace) {
+        document.querySelector('.lng-space').classList.add('keyboard_active_letter');
+    } else {
+        setActiveLetterForKeyboard(textLine.querySelector('letter:not(.corrrect)').textContent)
+    }
 }
 
-select3();
+async function changeLines() {
+    await checkUpOn();
+    updateDataText();
+    clearActiveLettersOnKeyboard();
+}

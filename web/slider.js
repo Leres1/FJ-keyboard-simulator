@@ -1,9 +1,12 @@
-function sliderFunctions(value, op) {
-    if (op == '.textsize') {
+async function sliderFunctions(op, value) {
+
+    await updateConfig(op, value);
+
+    if (op == 'text_size') {
         changeTextSize(value);
     }
 }
 
 function changeTextSize(value) {
-    document.querySelector('.textLine').style.fontSize = value + 'px';
+    textLine.classList = 'textLine textScale_' + String(value);
 }
